@@ -1,0 +1,8 @@
+Specific Mark = 1
+Count Of Cars = 1
+Cars:
+[0]: 1, 1, 1
+Bubble Sort...
+Result of sort (0 ms)
+[0]: 1, 1, 1
+Result = 1 (0 ms)

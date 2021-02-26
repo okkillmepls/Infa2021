@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/frunz/Desktop/c or c++/C/lab2/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stack_array.c
+C:/Users/frunz/Desktop/c or c++/C/lab2/stack_array.c
+queue.c
+C:/Users/frunz/Desktop/c or c++/C/lab2/queue.c
+
+C:/Users/frunz/Desktop/c or c++/C/lab2/queue.c
+stdio.h
+-
+stdlib.h
+-
+
+C:/Users/frunz/Desktop/c or c++/C/lab2/stack_array.c
+
