@@ -62,6 +62,8 @@ char *Postfix(char *s) {
         stack_read(st, c.c + c.n);
         c.n++;
     }
+    free(st->sym);
+    free(st);
     return c.c;
 
 }
