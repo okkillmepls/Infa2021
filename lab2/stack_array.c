@@ -1,30 +1,40 @@
 typedef struct stack{
-    char info;
-    struct stack_* next;
-}stack_;
+    char *sym;
+    int top;
+    int n;
+}stack;
 
 
 
-stack_* stack_init(int n){
-    stack_* p = (stack_*)calloc(1, sizeof(stack_*));
-    p->next = NULL;
-    return p;
+stack* stack_init(int n){
+    stack* rez = (stack*)calloc(1, sizeof(stack));
+    rez->sym = (char*)calloc(n, sizeof(char));
+    rez->top = 0;
+    rez->n = n;
+    return rez;
 }
 
 
-stack_* stack_write(stack_* top, char b){
-    stack_ *p = (stack_*)calloc(1, sizeof(stack_*));
-    p->info = b;
-    p->next = top;
-    top = p;
-    return top;
+int stack_write(stack* a, char b){
+    if (a->top == a->n){
+        return -1;
+    }
+    else{
+        *(a->sym + a->top) = b;
+        a->top++;
+    }
+    return 0;
 }
 
 
-stack_* stack_read(stack_* top, char *b){
-    stack_ *p = NULL;
-    p = top;
-    top = top->next;
-    p->next = NULL;
-    return top;
+int stack_read(stack* a, char *b){
+//    Считывает элемент из стэка, при ошибке возвращает -1
+    if (a->top == 0){
+        return -1;
+    }
+    else{
+        *b = *(a->sym + a->top - 1);
+        a->top--;
+    }
+    return 0;
 }
