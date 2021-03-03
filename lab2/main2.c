@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stack_array.c"
-#include "stack_list.c"
+#include "stack.h"
 
 
 // Алгоритм Дейкстрой
@@ -17,8 +16,7 @@ char *Postfix(char *s) {
     char l;
     c.c = (char *) calloc(strlen(s) + 1, sizeof(char));
     c.n = 0;
-    stack *st;
-    st = stack_init((int) strlen(s));
+    stack_ *st = NULL;
     char *p = s;
     while (*p != '\0') {
 //         Если пробел, то пропускаем
@@ -27,30 +25,30 @@ char *Postfix(char *s) {
         }
 //        Если открывающая скобка, то в стек ее
         else if (*p == '(') {
-            stack_write(st, *p);
+            st = stack_write_list(st, *p);
         }
 //         Если закрывающая скобка - выталкиваем из стека все операции до открывающей скобки
         else if (*p == ')') {
-            while ((*(st->sym + st->top - 1) != '(') && (st->top > 0)) {
-                stack_read(st, c.c + c.n);
+            while (((st->sym) != '(') && (st != NULL)) {
+                st = stack_read_list(st, c.c + c.n);
                 c.n++;
             }
-            stack_read(st, &l);
+            st = stack_read_list(st, &l);
         }
 //         Если встретился * или /, то выгружаем все * или / из стека
         else if ((*p == '*') || (*p == '/')) {
-            while ((*(st->sym + st->top - 1) == '*') || (*(st->sym + st->top - 1) == '/') && (st->top > 0) && (*(st->sym + st->top - 1) != '(')) {
-                stack_read(st, c.c + c.n);
+            while ((st->sym == '*') || (st->sym == '/') && (st != NULL) && (st->sym != '(')) {
+                st = stack_read_list(st, c.c + c.n);
                 c.n++;
             }
-            stack_write(st, *p);
+            st = stack_write_list(st, *p);
 //            Если встретился + или минус, то выгружаем все + или - из стека
         } else if ((*p == '+') || (*p == '-')) {
-            while ((*(st->sym + st->top - 1) != '(') && (st->top > 0)) {
-                stack_read(st, c.c + c.n);
+            while ((st != NULL) && (st->sym != '(')) {
+                st = stack_read_list(st, c.c + c.n);
                 c.n++;
             }
-            stack_write(st, *p);
+            st = stack_write_list(st, *p);
 //            Если встречается буква, то в строку ее
         } else {
             *(c.c + c.n) = *p;
@@ -59,8 +57,8 @@ char *Postfix(char *s) {
         p++;
     }
 //    Если в стеке остались данные, то
-    while (st->top != 0){
-        stack_read(st, c.c + c.n);
+    while (st != NULL){
+        st = stack_read_list(st, c.c + c.n);
         c.n++;
     }
     return c.c;

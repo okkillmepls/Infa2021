@@ -260,6 +260,14 @@
 		<Unit filename="C:/Users/frunz/Desktop/c or c++/C/lab2/main2.c">
 			<Option target="main2.2"/>
 		</Unit>
+		<Unit filename="C:/Users/frunz/Desktop/c or c++/C/lab2/stack.c">
+			<Option target="main2.2"/>
+			<Option target="main2"/>
+		</Unit>
+		<Unit filename="C:/Users/frunz/Desktop/c or c++/C/lab2/stack.h">
+			<Option target="main2.2"/>
+			<Option target="main2"/>
+		</Unit>
 		<Unit filename="C:/Users/frunz/Desktop/c or c++/C/test.c">
 			<Option target="test1"/>
 		</Unit>

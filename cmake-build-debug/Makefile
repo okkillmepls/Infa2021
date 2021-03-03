@@ -302,6 +302,36 @@ lab2/main2.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/main2.c.s
 .PHONY : lab2/main2.c.s
 
+lab2/stack.obj: lab2/stack.c.obj
+
+.PHONY : lab2/stack.obj
+
+# target to build an object file
+lab2/stack.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/stack.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/lab2/stack.c.obj
+.PHONY : lab2/stack.c.obj
+
+lab2/stack.i: lab2/stack.c.i
+
+.PHONY : lab2/stack.i
+
+# target to preprocess a source file
+lab2/stack.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/stack.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/lab2/stack.c.i
+.PHONY : lab2/stack.c.i
+
+lab2/stack.s: lab2/stack.c.s
+
+.PHONY : lab2/stack.s
+
+# target to generate assembly for a file
+lab2/stack.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/stack.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/lab2/stack.c.s
+.PHONY : lab2/stack.c.s
+
 test.obj: test.c.obj
 
 .PHONY : test.obj
@@ -354,6 +384,9 @@ help:
 	@echo ... lab2/main2.obj
 	@echo ... lab2/main2.i
 	@echo ... lab2/main2.s
+	@echo ... lab2/stack.obj
+	@echo ... lab2/stack.i
+	@echo ... lab2/stack.s
 	@echo ... test.obj
 	@echo ... test.i
 	@echo ... test.s
