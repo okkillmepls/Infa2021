@@ -1,23 +1,16 @@
 #include "stack.h"
 #include <stdlib.h>
+//#define vector
 
 
-stack_* stack_write_list(stack_* top, char b){
-    stack_ *p = (stack_*)calloc(1, sizeof(stack_*));
-    p->sym = b;
-    p->next = top;
-    top = p;
-    return top;
-}
+#ifdef vector
 
-stack_* stack_read_list(stack_* top, char *b){
-    stack_ *p = NULL;
-    p = top;
-    *b = top->sym;
-    top = top->next;
-    p->next = NULL;
-    return top;
-}
+typedef struct stack{
+    char *sym;
+    int top;
+    int n;
+}stack;
+
 
 stack* stack_init(int n){
     stack* rez = (stack*)calloc(1, sizeof(stack));
@@ -51,3 +44,38 @@ int stack_read(stack* a, char *b){
     }
     return 0;
 }
+#endif
+// Список
+#ifndef vector
+
+typedef struct stack{
+    char sym;
+    struct stack* next;
+}stack;
+
+
+stack* stack_init(int n){
+    return NULL;
+}
+
+
+int stack_write(stack* top, char b){
+    stack *p = (stack*)calloc(1, sizeof(stack*));
+    p->sym = b;
+    p->next = top;
+    top = p;
+}
+
+int stack_read(stack* top, char *b){
+    if (top == NULL){
+        return -1;
+    }
+    else {
+        stack *p = NULL;
+        p = top;
+        *b = top->sym;
+        top = top->next;
+        p->next = NULL;
+    }
+}
+#endif
