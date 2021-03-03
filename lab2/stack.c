@@ -2,12 +2,6 @@
 #include <stdlib.h>
 
 
-//typedef struct stack_{
-//    char sym;
-//    struct stack_* next;
-//}stack_;
-
-
 stack_* stack_write_list(stack_* top, char b){
     stack_ *p = (stack_*)calloc(1, sizeof(stack_*));
     p->sym = b;
@@ -24,14 +18,6 @@ stack_* stack_read_list(stack_* top, char *b){
     p->next = NULL;
     return top;
 }
-
-//typedef struct stack{
-//    char *sym;
-//    int top;
-//    int n;
-//}stack;
-
-
 
 stack* stack_init(int n){
     stack* rez = (stack*)calloc(1, sizeof(stack));
