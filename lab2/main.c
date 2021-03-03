@@ -27,30 +27,30 @@ char *Postfix(char *s) {
         }
 //        Если открывающая скобка, то в стек ее
         else if (*p == '(') {
-            stack_write(st, *p);
+            stack_write(&st, *p);
         }
 //         Если закрывающая скобка - выталкиваем из стека все операции до открывающей скобки
         else if (*p == ')') {
-            while ((*(st->sym + st->top - 1) != '(') && (st->top > 0)) {
-                stack_read(st, c.c + c.n);
+            while ((stack_check(st) != '(') && (stack_check(st) != 0)) {
+                stack_read(&st, c.c + c.n);
                 c.n++;
             }
-            stack_read(st, &l);
+            stack_read(&st, &l);
         }
 //         Если встретился * или /, то выгружаем все * или / из стека
         else if ((*p == '*') || (*p == '/')) {
-            while ((*(st->sym + st->top - 1) == '*') || (*(st->sym + st->top - 1) == '/') && (st->top > 0) && (*(st->sym + st->top - 1) != '(')) {
-                stack_read(st, c.c + c.n);
+            while (((stack_check(st) == '*') || (stack_check(st) == '/')) && (stack_check(st) != 0) && (stack_check(st) != '(')) {
+                stack_read(&st, c.c + c.n);
                 c.n++;
             }
-            stack_write(st, *p);
+            stack_write(&st, *p);
 //            Если встретился + или минус, то выгружаем все + или - из стека
         } else if ((*p == '+') || (*p == '-')) {
-            while ((*(st->sym + st->top - 1) != '(') && (st->top > 0)) {
-                stack_read(st, c.c + c.n);
+            while ((stack_check(st) != '(') && (stack_check(st) > 0)) {
+                stack_read(&st, c.c + c.n);
                 c.n++;
             }
-            stack_write(st, *p);
+            stack_write(&st, *p);
 //            Если встречается буква, то в строку ее
         } else {
             *(c.c + c.n) = *p;
@@ -59,12 +59,11 @@ char *Postfix(char *s) {
         p++;
     }
 //    Если в стеке остались данные, то
-    while (st->top != 0){
-        stack_read(st, c.c + c.n);
+    while (stack_check(st) != 0){
+        stack_read(&st, c.c + c.n);
         c.n++;
     }
-    free(st->sym);
-    free(st);
+    stack_free(&st);
     return c.c;
 
 }
