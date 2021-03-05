@@ -16,6 +16,7 @@ typedef struct stack{
     struct stack* next;
 }stack;
 #endif
+
 char stack_check(stack* top);
 void stack_free(stack** top);
 stack* stack_init(int n);

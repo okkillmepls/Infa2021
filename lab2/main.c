@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define vector
 #include "stack.h"
+
+
 
 
 // Алгоритм Дейкстрой
@@ -71,7 +72,7 @@ char *Postfix(char *s) {
 char *Reverse(char* s){
 //    Возвращает инверсию строки с учетом скобок
     int len = (int)strlen(s);
-    char *c = (char*)calloc(len, sizeof(s));
+    char *c = (char*)calloc(len + 1, sizeof(s));
     for (int i = 0; i < len; i++){
         if (*(s + len - i - 1)  == '('){
             *(c + i) = ')';
@@ -114,7 +115,7 @@ char* getString(){
         else if (n > 0) {
             len = (int)strlen(buf);
             len_res += len;
-            res = realloc(res, len_res * sizeof(char));
+            res = realloc(res, (len_res + 1) * sizeof(char));
             memcpy(res + len_res - len, buf, len);
         }
         else{

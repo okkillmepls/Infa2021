@@ -1,5 +1,6 @@
 #include "stack.h"
 #include <stdlib.h>
+#include <stdio.h>
 //#define vector
 
 
@@ -13,6 +14,7 @@ char stack_check(stack* top){
 void stack_free(stack** top){
     free((*top)->sym);
     free(*top);
+    printf("Vector: ");
 }
 
 
@@ -64,7 +66,7 @@ char stack_check(stack* top){
 
 
 int stack_write(stack** top, char b){
-    stack *p = (stack*)calloc(1, sizeof(stack*));
+    stack *p = (stack*)calloc(1, sizeof(stack));
     p->sym = b;
     p->next = *top;
     *top = p;
@@ -72,7 +74,7 @@ int stack_write(stack** top, char b){
 }
 
 int stack_read(stack** top, char *b){
-    if (top == NULL){
+    if (*top == NULL){
         return -1;
     }
     else {
@@ -80,12 +82,15 @@ int stack_read(stack** top, char *b){
         p = *top;
         *b = (*top)->sym;
         *top = (*top)->next;
-        p->next = NULL;
+        free(p);
     }
+    return 0;
 }
+
 
 void stack_free(stack** top){
     free(*top);
+    printf("List: ");
 }
 
 #endif
