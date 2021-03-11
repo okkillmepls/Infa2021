@@ -75,17 +75,6 @@ CMAKE_BINARY_DIR = "C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug"
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -96,6 +85,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	"C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -143,32 +143,6 @@ main1/fast:
 .PHONY : main1/fast
 
 #=============================================================================
-# Target rules for targets named Test
-
-# Build rule for target.
-Test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Test
-.PHONY : Test
-
-# fast build rule for target.
-Test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/build
-.PHONY : Test/fast
-
-#=============================================================================
-# Target rules for targets named main2.2
-
-# Build rule for target.
-main2.2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 main2.2
-.PHONY : main2.2
-
-# fast build rule for target.
-main2.2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/build
-.PHONY : main2.2/fast
-
-#=============================================================================
 # Target rules for targets named main2
 
 # Build rule for target.
@@ -180,46 +154,6 @@ main2: cmake_check_build_system
 main2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/build
 .PHONY : main2/fast
-
-#=============================================================================
-# Target rules for targets named test1
-
-# Build rule for target.
-test1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test1
-.PHONY : test1
-
-# fast build rule for target.
-test1/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test1.dir\build.make CMakeFiles/test1.dir/build
-.PHONY : test1/fast
-
-lab1/Test.obj: lab1/Test.c.obj
-
-.PHONY : lab1/Test.obj
-
-# target to build an object file
-lab1/Test.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/lab1/Test.c.obj
-.PHONY : lab1/Test.c.obj
-
-lab1/Test.i: lab1/Test.c.i
-
-.PHONY : lab1/Test.i
-
-# target to preprocess a source file
-lab1/Test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/lab1/Test.c.i
-.PHONY : lab1/Test.c.i
-
-lab1/Test.s: lab1/Test.c.s
-
-.PHONY : lab1/Test.s
-
-# target to generate assembly for a file
-lab1/Test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/lab1/Test.c.s
-.PHONY : lab1/Test.c.s
 
 lab1/main_1.obj: lab1/main_1.c.obj
 
@@ -275,40 +209,12 @@ lab2/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/lab2/main.c.s
 .PHONY : lab2/main.c.s
 
-lab2/main2.obj: lab2/main2.c.obj
-
-.PHONY : lab2/main2.obj
-
-# target to build an object file
-lab2/main2.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/main2.c.obj
-.PHONY : lab2/main2.c.obj
-
-lab2/main2.i: lab2/main2.c.i
-
-.PHONY : lab2/main2.i
-
-# target to preprocess a source file
-lab2/main2.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/main2.c.i
-.PHONY : lab2/main2.c.i
-
-lab2/main2.s: lab2/main2.c.s
-
-.PHONY : lab2/main2.s
-
-# target to generate assembly for a file
-lab2/main2.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/main2.c.s
-.PHONY : lab2/main2.c.s
-
 lab2/stack.obj: lab2/stack.c.obj
 
 .PHONY : lab2/stack.obj
 
 # target to build an object file
 lab2/stack.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/stack.c.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/lab2/stack.c.obj
 .PHONY : lab2/stack.c.obj
 
@@ -318,7 +224,6 @@ lab2/stack.i: lab2/stack.c.i
 
 # target to preprocess a source file
 lab2/stack.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/stack.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/lab2/stack.c.i
 .PHONY : lab2/stack.c.i
 
@@ -328,36 +233,8 @@ lab2/stack.s: lab2/stack.c.s
 
 # target to generate assembly for a file
 lab2/stack.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/lab2/stack.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/lab2/stack.c.s
 .PHONY : lab2/stack.c.s
-
-test.obj: test.c.obj
-
-.PHONY : test.obj
-
-# target to build an object file
-test.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test1.dir\build.make CMakeFiles/test1.dir/test.c.obj
-.PHONY : test.c.obj
-
-test.i: test.c.i
-
-.PHONY : test.i
-
-# target to preprocess a source file
-test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test1.dir\build.make CMakeFiles/test1.dir/test.c.i
-.PHONY : test.c.i
-
-test.s: test.c.s
-
-.PHONY : test.s
-
-# target to generate assembly for a file
-test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test1.dir\build.make CMakeFiles/test1.dir/test.c.s
-.PHONY : test.c.s
 
 # Help Target
 help:
@@ -367,29 +244,17 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Test
 	@echo ... main1
 	@echo ... main2
-	@echo ... main2.2
-	@echo ... test1
-	@echo ... lab1/Test.obj
-	@echo ... lab1/Test.i
-	@echo ... lab1/Test.s
 	@echo ... lab1/main_1.obj
 	@echo ... lab1/main_1.i
 	@echo ... lab1/main_1.s
 	@echo ... lab2/main.obj
 	@echo ... lab2/main.i
 	@echo ... lab2/main.s
-	@echo ... lab2/main2.obj
-	@echo ... lab2/main2.i
-	@echo ... lab2/main2.s
 	@echo ... lab2/stack.obj
 	@echo ... lab2/stack.i
 	@echo ... lab2/stack.s
-	@echo ... test.obj
-	@echo ... test.i
-	@echo ... test.s
 .PHONY : help
 
 

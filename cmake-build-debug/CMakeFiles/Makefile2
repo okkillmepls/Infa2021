@@ -73,10 +73,7 @@ CMAKE_BINARY_DIR = "C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug"
 
 # The main recursive "all" target.
 all: CMakeFiles/main1.dir/all
-all: CMakeFiles/Test.dir/all
-all: CMakeFiles/main2.2.dir/all
 all: CMakeFiles/main2.dir/all
-all: CMakeFiles/test1.dir/all
 
 .PHONY : all
 
@@ -87,10 +84,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/main1.dir/clean
-clean: CMakeFiles/Test.dir/clean
-clean: CMakeFiles/main2.2.dir/clean
 clean: CMakeFiles/main2.dir/clean
-clean: CMakeFiles/test1.dir/clean
 
 .PHONY : clean
 
@@ -101,7 +95,7 @@ clean: CMakeFiles/test1.dir/clean
 CMakeFiles/main1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main1.dir\build.make CMakeFiles/main1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main1.dir\build.make CMakeFiles/main1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" --progress-num=3,4 "Built target main1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" --progress-num=1,2 "Built target main1"
 .PHONY : CMakeFiles/main1.dir/all
 
 # Build rule for subdir invocation for target.
@@ -122,67 +116,13 @@ CMakeFiles/main1.dir/clean:
 .PHONY : CMakeFiles/main1.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Test.dir
-
-# All Build rule for target.
-CMakeFiles/Test.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" --progress-num=1,2 "Built target Test"
-.PHONY : CMakeFiles/Test.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/Test.dir/rule
-
-# Convenience name for target.
-Test: CMakeFiles/Test.dir/rule
-
-.PHONY : Test
-
-# clean rule for target.
-CMakeFiles/Test.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/clean
-.PHONY : CMakeFiles/Test.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/main2.2.dir
-
-# All Build rule for target.
-CMakeFiles/main2.2.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" --progress-num=8,9,10 "Built target main2.2"
-.PHONY : CMakeFiles/main2.2.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/main2.2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/main2.2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/main2.2.dir/rule
-
-# Convenience name for target.
-main2.2: CMakeFiles/main2.2.dir/rule
-
-.PHONY : main2.2
-
-# clean rule for target.
-CMakeFiles/main2.2.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.2.dir\build.make CMakeFiles/main2.2.dir/clean
-.PHONY : CMakeFiles/main2.2.dir/clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/main2.dir
 
 # All Build rule for target.
 CMakeFiles/main2.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" --progress-num=5,6,7 "Built target main2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" --progress-num=3,4,5 "Built target main2"
 .PHONY : CMakeFiles/main2.dir/all
 
 # Build rule for subdir invocation for target.
@@ -201,33 +141,6 @@ main2: CMakeFiles/main2.dir/rule
 CMakeFiles/main2.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main2.dir\build.make CMakeFiles/main2.dir/clean
 .PHONY : CMakeFiles/main2.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/test1.dir
-
-# All Build rule for target.
-CMakeFiles/test1.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test1.dir\build.make CMakeFiles/test1.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test1.dir\build.make CMakeFiles/test1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" --progress-num=11,12 "Built target test1"
-.PHONY : CMakeFiles/test1.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/test1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/test1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\frunz\Desktop\c or c++\C\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/test1.dir/rule
-
-# Convenience name for target.
-test1: CMakeFiles/test1.dir/rule
-
-.PHONY : test1
-
-# clean rule for target.
-CMakeFiles/test1.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test1.dir\build.make CMakeFiles/test1.dir/clean
-.PHONY : CMakeFiles/test1.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
