@@ -59,7 +59,7 @@ char *Postfix(char *s) {
         }
         p++;
     }
-//    Если в стеке остались данные, то
+//    Если в стеке остались данные, то ...
     while (stack_check(st) != 0){
         stack_read(&st, c.c + c.n);
         c.n++;
